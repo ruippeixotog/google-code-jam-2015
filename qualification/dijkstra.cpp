@@ -53,13 +53,13 @@ int qpow(int q0, int k) {
   return curr;
 }
 
-int vals[MAXL];
 int existsPrefix[9], existsSuffix[9];
 int allStrProd;
 
 void preprocess(string& str) {
+  int vals[MAXL];
   for(int i = 0; i < str.size(); i++)
-    vals[i] = (int)(str[i] - 'i') + 2;
+    vals[i] = repr(str[i]);
 
   memset(existsPrefix, 0, sizeof(existsPrefix));
   memset(existsSuffix, 0, sizeof(existsSuffix));
