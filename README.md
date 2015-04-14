@@ -25,7 +25,7 @@ The following is the list of the problems solved. Each problem id is specified b
 ### Qualification Round
 
 * ✓ [A: Standing Ovation][qual1] (`standing-ovation`)
-* ✗ [B: Infinite House of Pancakes][qual2] (`infinite-house-of-pancakes`)
+* ✓ [B: Infinite House of Pancakes][qual2] (`infinite-house-of-pancakes`)
 * ✓ [C: Dijkstra][qual3] (`dijkstra`)
 
 [1]: https://code.google.com/codejam

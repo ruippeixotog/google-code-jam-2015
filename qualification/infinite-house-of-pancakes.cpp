@@ -1,89 +1,44 @@
 #include <algorithm>
-#include <cstring>
 #include <iostream>
-#include <map>
-#include <vector>
 
+#define MAXD 1000
 #define MAXP 1000
 
 using namespace std;
 
-int hist[MAXP + 1];
+int diners[MAXD];
+int dp[MAXP + 1][MAXP + 1];
 
-map<vector<int>, int> mem;
+void preprocess() {
+  for(int i = 1; i <= MAXP; i++) {
+    dp[i][0] = MAXP + 1; // large number
 
-int bf(int t, vector<int> state) {
-  // for(int i = 0; i < t; i++) cerr << "  ";
-  // cerr << "state: "; 
-  // for(int i = 0; i < state.size(); i++) cerr << state[i] << " ";
-  // cerr << endl;
+    for(int j = 1; j <= MAXP; j++) {
+      dp[i][j] = i == j ? 0 : dp[i][j - 1];
 
-  sort(state.begin(), state.end());
-
-  if(state.empty()) return 0;
-  if(mem.count(state)) return mem[state];
-
-  int best = 1e9;
-
-  for(int i = 0; i < state.size(); i++) {
-    if(state[i] == 1) continue;
-
-    for(int p = 1; p < state[i]; p++) {
-
-      vector<int> newState;
-      for(int j = 0; j < state.size(); j++) {
-        if(j != i) newState.push_back(state[j]);
-        else {
-          newState.push_back(p);
-          newState.push_back(state[j] - p);
-        }
-      }
-      best = min(best, 1 + bf(t + 1, newState));
+      for(int k = 1; k < i; k++)
+        dp[i][j] = min(dp[i][j], 1 + dp[k][j] + dp[i - k][j]);
     }
   }
-
-  vector<int> newState2;
-  for(int i = 0; i < state.size(); i++) {
-    if(state[i] > 1)
-      newState2.push_back(state[i] - 1);
-  }
-  best = min(best, 1 + bf(t + 1, newState2));
-
-  mem[state] = best;
-  return best;
 }
 
 int main() {
+  preprocess();
+
   int t; cin >> t;
   for(int tc = 1; tc <= t; tc++) {
-    cerr << "Case " << tc << endl;
     int d; cin >> d;
+    for(int i = 0; i < d; i++) cin >> diners[i];
 
-    vector<int> vec;
-    for(int i = 0; i < d; i++) {
-      int pi; cin >> pi; vec.push_back(pi);
+    int best = MAXP;
+    for(int i = 1; i <= MAXP; i++) {
+      int sum = 0;
+      for(int j = 0; j < d; j++)
+        sum += dp[diners[j]][i];
+
+      best = min(best, sum + i);
     }
-    int best = bf(0, vec);
 
-    // memset(hist, 0, sizeof(hist));
-    // for(int i = 0; i < d; i++) {
-    //   int pi; cin >> pi; hist[pi]++;
-    // }
-
-    // int best = (int) 1e9;
-    // int specials = 0;
-
-    // for(int i = MAXP; i > 1; i--) {
-    //   if(hist[i] == 0) continue;
-
-    //   best = min(best, i + specials);
-    //   int major = (i + 1) / 2, minor = i / 2;
-    //   hist[minor] += hist[i];
-    //   hist[major] += hist[i];
-    //   specials += hist[i];
-    // }
-
-    // best = min(best, 1 + specials);
     cout << "Case #" << tc << ": " << best << endl;
   }
   return 0;
