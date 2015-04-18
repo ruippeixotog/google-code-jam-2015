@@ -31,7 +31,7 @@ The following is the list of the problems solved. Each problem id is specified b
 ### Round 1A
 
 * ✓ [A: Mushroom Monster][round1a1] (`mushroom-monster`)
-* ✗ [B: Haircut][round1a2] (`haircut`)
+* ✓ [B: Haircut][round1a2] (`haircut`)
 * ✗ [C: Logging][round1a3] (`logging`)
 
 [1]: https://code.google.com/codejam

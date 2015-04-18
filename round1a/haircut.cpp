@@ -1,55 +1,58 @@
-#include <algorithm>
 #include <iostream>
-#include <map>
-#include <vector>
+#include <queue>
+#include <utility>
 
-#define MAXB 5
+#define ll long long
+#define lli_min_queue priority_queue<pair<ll,int>, vector<pair<ll,int> >, greater<pair<ll,int> > >
+
+#define MAXB 1000
+#define MAXM 100000
 
 using namespace std;
 
+int b; ll n;
 int m[MAXB];
 
-map<vector<int>, int> mem;
+ll servedAt(ll t) {
+  if(t < 0) return 0;
+  ll served = b;
+  for(int i = 0; i < b; i++) served += t / m[i];
+  return served;
+}
+
+ll bs(ll low, ll high) {
+  if(low == high - 1) return low;
+  ll mid = (high + low) / 2;
+  return servedAt(mid) >= n ? bs(low, mid) : bs(mid, high);
+}
+
+int sim(ll t, int k) {
+  lli_min_queue q;
+  for(int i = 0; i < b; i++) {
+    int next = (t / m[i] + 1) * m[i];
+    q.push(make_pair(next, i));
+  }
+
+  int last = -1;
+  while(k--) {
+    pair<ll, int> next = q.top(); q.pop();
+    last = next.second;
+    q.push(make_pair(next.first + m[last], last));
+  }
+
+  return last + 1;
+}
 
 int main() {
   int t; cin >> t;
   for(int tc = 1; tc <= t; tc++) {
-    int b, n; cin >> b >> n;
+    cin >> b >> n;
     for(int i = 0; i < b; i++) cin >> m[i];
 
-    mem.clear();
-    vector<int> state(b, 0);
+    ll t = bs(-1, MAXM * n);
+    ll remaining = n - servedAt(t);
 
-    bool jumped = false;
-    int lowIdx;
-
-    for(int i = 0; i < n; i++) {
-      lowIdx = -1;
-      int low = 1e9;
-      for(int j = 0; j < b; j++) {
-        if(state[j] < low) { low = state[j]; lowIdx = j; }
-      }
-
-      for(int j = 0; j < b; j++) state[j] -= low;
-      // cerr << i << ": " << lowIdx << endl;
-
-      if(!jumped) {
-        if(mem.count(state)) {
-          int period = i - mem[state];
-          int jump = (n - i - 1) / period;
-          i += period * jump;
-
-          // cerr << "Jump to " << i << "!" << endl;
-          jumped = true;
-        } else {
-          mem[state] = i;
-        }
-      }
-
-      state[lowIdx] += m[lowIdx];
-    }
-
-    cout << "Case #" << tc << ": " << (lowIdx + 1) << endl;
+    cout << "Case #" << tc << ": " << sim(t, remaining) << endl;
   }
   return 0;
 }
