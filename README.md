@@ -28,7 +28,16 @@ The following is the list of the problems solved. Each problem id is specified b
 * ✓ [B: Infinite House of Pancakes][qual2] (`infinite-house-of-pancakes`)
 * ✓ [C: Dijkstra][qual3] (`dijkstra`)
 
+### Round 1A
+
+* ✓ [A: Mushroom Monster][round1a1] (`mushroom-monster`)
+* ✗ [B: Haircut][round1a2] (`haircut`)
+* ✗ [C: Logging][round1a3] (`logging`)
+
 [1]: https://code.google.com/codejam
 [qual1]: https://code.google.com/codejam/contest/6224486/dashboard#s=p0
 [qual2]: https://code.google.com/codejam/contest/6224486/dashboard#s=p1
 [qual3]: https://code.google.com/codejam/contest/6224486/dashboard#s=p2
+[round1a1]: https://code.google.com/codejam/contest/4224486/dashboard#s=p0
+[round1a2]: https://code.google.com/codejam/contest/4224486/dashboard#s=p1
+[round1a3]: https://code.google.com/codejam/contest/4224486/dashboard#s=p2
