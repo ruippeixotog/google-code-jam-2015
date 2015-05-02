@@ -34,6 +34,12 @@ The following is the list of the problems solved. Each problem id is specified b
 * ✓ [B: Haircut][round1a2] (`haircut`)
 * ✗ [C: Logging][round1a3] (`logging`)
 
+### Round 1B
+
+* ✗ [A: Counter Culture][round1b1] (`counter-culture`)
+* ✓ [B: Noisy Neighbors][round1b2] (`noisy-neighbors`)
+* ✗ [C: Hiking Deer][round1b3] (`hiking-deer`)
+
 [1]: https://code.google.com/codejam
 [qual1]: https://code.google.com/codejam/contest/6224486/dashboard#s=p0
 [qual2]: https://code.google.com/codejam/contest/6224486/dashboard#s=p1
@@ -41,3 +47,6 @@ The following is the list of the problems solved. Each problem id is specified b
 [round1a1]: https://code.google.com/codejam/contest/4224486/dashboard#s=p0
 [round1a2]: https://code.google.com/codejam/contest/4224486/dashboard#s=p1
 [round1a3]: https://code.google.com/codejam/contest/4224486/dashboard#s=p2
+[round1b1]: https://code.google.com/codejam/contest/8224486/dashboard#s=p0
+[round1b2]: https://code.google.com/codejam/contest/8224486/dashboard#s=p1
+[round1b3]: https://code.google.com/codejam/contest/8224486/dashboard#s=p2
