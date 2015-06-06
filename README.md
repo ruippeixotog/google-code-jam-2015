@@ -40,6 +40,11 @@ The following is the list of the problems solved. Each problem id is specified b
 * ✓ [B: Noisy Neighbors][round1b2] (`noisy-neighbors`)
 * ✗ [C: Hiking Deer][round1b3] (`hiking-deer`)
 
+### Round 2
+
+* ✗ [A: Pegman][round21] (`pegman`)
+* ✗ [B: Kiddie Pool][round22] (`kiddie-pool`)
+
 [1]: https://code.google.com/codejam
 [qual1]: https://code.google.com/codejam/contest/6224486/dashboard#s=p0
 [qual2]: https://code.google.com/codejam/contest/6224486/dashboard#s=p1
@@ -50,3 +55,5 @@ The following is the list of the problems solved. Each problem id is specified b
 [round1b1]: https://code.google.com/codejam/contest/8224486/dashboard#s=p0
 [round1b2]: https://code.google.com/codejam/contest/8224486/dashboard#s=p1
 [round1b3]: https://code.google.com/codejam/contest/8224486/dashboard#s=p2
+[round21]: https://code.google.com/codejam/contest/8234486/dashboard#s=p0
+[round22]: https://code.google.com/codejam/contest/8234486/dashboard#s=p1
