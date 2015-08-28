@@ -8,7 +8,7 @@ ROUND2_CC_FILES = $(wildcard round2/*.cpp)
 ROUND2_BIN_FILES = $(patsubst round2/%.cpp, %, $(ROUND2_CC_FILES))
 
 BIN_FILES = $(QUAL_BIN_FILES) $(ROUND1A_BIN_FILES) $(ROUND1B_BIN_FILES) $(ROUND2_BIN_FILES)
-CC_FLAGS = -Wall -O2 -lm
+CC_FLAGS = -std=c++0x -Wall -O2 -lm
 CC = g++
 
 all: $(BIN_FILES)
