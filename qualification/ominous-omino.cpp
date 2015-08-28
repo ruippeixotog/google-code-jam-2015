@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <cstdlib>
 #include <iostream>
 #include <set>
@@ -104,8 +103,10 @@ void genAllOminoes() {
 }
 
 int emptyAreaSize(int row, int col) {
-  if(row < 0 || row >= r || col < 0 || col >= c || visited[row][col])
+  if(row < 0 || row >= r || col < 0 || col >= c ||
+      board[row][col] || visited[row][col]) {
     return 0;
+  }
 
   visited[row][col] = true;
   int size = 1;
@@ -115,7 +116,7 @@ int emptyAreaSize(int row, int col) {
   return size;
 }
 
-bool isBoardValid() {
+bool canFillEmptySpaces() {
   memset(visited, false, sizeof(visited));
   for(int i = 0; i < r; i++) {
     for(int j = 0; j < c; j++) {
@@ -126,22 +127,6 @@ bool isBoardValid() {
   return true;
 }
 
-// play after the mandatory Omino is placed
-bool play3(int i, int j) {
-  if(j >= c) { j = 0; i++; }
-  if(i >= r) return true;
-  if(board[i][j]) return play3(i, j + 1);
-
-  for(soiterator it = ominoes[x].begin(); it != ominoes[x].end(); it++) {
-    if(putOmino(*it, i, j) && isBoardValid()) {
-      bool res = play3(i, j + 1);
-      removeOmino(*it, i, j);
-      if(res) return true; 
-    }
-  }
-  return false;
-}
-
 // play after the mandatory Omino is chosen by Richard
 bool play2(const Omino& om) {
   Omino rotated = rotate90Omino(om);
@@ -149,12 +134,12 @@ bool play2(const Omino& om) {
   for(int i = 0; i < r; i++) {
     for(int j = 0; j < c; j++) {
       if(putOmino(om, i, j)) {
-        bool res = play3(0, 0);
+        bool res = canFillEmptySpaces();
         removeOmino(om, i, j);
         if(res) return true;
       }
       if(putOmino(rotated, i, j)) {
-        bool res = play3(0, 0);
+        bool res = canFillEmptySpaces();
         removeOmino(rotated, i, j);
         if(res) return true;
       }

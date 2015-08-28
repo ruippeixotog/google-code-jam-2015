@@ -27,7 +27,7 @@ The following is the list of the problems solved. Each problem id is specified b
 * ✓ [A: Standing Ovation][qual1] (`standing-ovation`)
 * ✓ [B: Infinite House of Pancakes][qual2] (`infinite-house-of-pancakes`)
 * ✓ [C: Dijkstra][qual3] (`dijkstra`)
-* ✗ [C: Ominous Omino][qual4] (`ominous-omino`)
+* ✓ [C: Ominous Omino][qual4] (`ominous-omino`)
 
 ### Round 1A
 
