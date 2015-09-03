@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <utility>
 
 #define MAXN 15
 
@@ -8,47 +9,39 @@
 
 using namespace std;
 
-struct Point {
-  ll x, y;
- 
-  bool operator <(const Point &p) const {
-    return x < p.x || (x == p.x && y < p.y);
-  }
-};
+typedef pair<int, int> Point;
 
-ll cross(Point &O, Point &A, Point &B) {
-  return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
+Point trees[MAXN], treesOrig[MAXN];
+Point hull[2 * MAXN];
+
+ll cross(Point& o, Point& a, Point& b) {
+  return (a.first - o.first) * (ll) (b.second - o.second) -
+    (a.second - o.second) * (ll) (b.first - o.first);
 }
 
-vector<Point> convexHull(vector<Point> P) {
-  int n = P.size(), k = 0;
-  vector<Point> H(2*n);
+int convexHull(vector<Point> pts) {
+  int k = 0;
  
-  for (int i = 0; i < n; i++) {
-    while (k >= 2 && cross(H[k-2], H[k-1], P[i]) < 0) k--;
-    H[k++] = P[i];
+  for (int i = 0; i < pts.size(); i++) {
+    while (k >= 2 && cross(hull[k - 2], hull[k - 1], pts[i]) < 0) k--;
+    hull[k++] = pts[i];
   }
- 
-  for (int i = n-2, t = k+1; i >= 0; i--) {
-    while (k >= t && cross(H[k-2], H[k-1], P[i]) < 0) k--;
-    H[k++] = P[i];
-  }
- 
-  H.resize(k);
-  return H;
-}
 
-Point treesOrig[MAXN];
-Point trees[MAXN];
+  for (int i = pts.size() - 2, t = k + 1; i >= 0; i--) {
+    while (k >= t && cross(hull[k - 2], hull[k - 1], pts[i]) < 0) k--;
+    hull[k++] = pts[i];
+  }
+ 
+  return k;
+}
 
 int solve(int n, int k, vector<Point>& pts, Point& curr) {
   if(k == n) {
-    vector<Point> hull = convexHull(pts);
+    int hullSize = convexHull(pts);
 
-    for(int j = 0; j < hull.size(); j++)
-      if(hull[j].x == curr.x && hull[j].y == curr.y)
-        return 0;
-
+    for(int i = 0; i < hullSize; i++) {
+      if(hull[i] == curr) return 0;
+    }
     return 1e9;
   }
 
@@ -65,7 +58,7 @@ int main() {
   for(int tc = 1; tc <= t; tc++) {
     int n; cin >> n;
     for(int i = 0; i < n; i++) {
-      cin >> trees[i].x >> trees[i].y;
+      cin >> trees[i].first >> trees[i].second;
       treesOrig[i] = trees[i];
     }
     
