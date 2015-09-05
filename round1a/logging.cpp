@@ -1,10 +1,11 @@
 #include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <vector>
-#include <utility>
 
-#define MAXN 15
+#define MAXN 3000
 #define INF 1e9
+#define EPS 1e-10
 
 #define ll long long
 
@@ -14,9 +15,8 @@ typedef pair<int, int> Point;
 
 Point trees[MAXN];
 
-ll cross(Point& o, Point& a, Point& b) {
-  return (a.first - o.first) * (ll) (b.second - o.second) -
-    (a.second - o.second) * (ll) (b.first - o.first);
+double angle(Point& o, Point& a) {
+  return atan2(a.second - o.second, a.first - o.first) / M_PI;
 }
 
 int main() {
@@ -35,14 +35,24 @@ int main() {
       for(int i = 0; i < n; i++) {
         int minCuts = INF;
 
+        vector<double> angles;
         for(int j = 0; j < n; j++) {
           if(j == i) continue;
+          double ang = angle(trees[i], trees[j]);
+          angles.push_back(ang);
+          angles.push_back(ang + 2);
+        }
 
-          int cuts = 0;
-          for(int k = 0; k < n; k++) {
-            if(k != i && k != j &&
-              cross(trees[i], trees[j], trees[k]) < 0) cuts++;
-          }
+        sort(angles.begin(), angles.end());
+
+        for(int j = 0; j < n; j++) {
+          if(j == i) continue;
+          double ang = angle(trees[i], trees[j]);
+
+          int cuts = (int) distance(
+            upper_bound(angles.begin(), angles.end(), ang + EPS),
+            lower_bound(angles.begin(), angles.end(), ang + 1 - EPS));
+
           minCuts = min(minCuts, cuts);
         }
         cout << minCuts << endl;
