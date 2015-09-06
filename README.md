@@ -37,7 +37,7 @@ The following is the list of the problems solved. Each problem id is specified b
 
 ### Round 1B
 
-* ✗ [A: Counter Culture][round1b1] (`counter-culture`)
+* ✓ [A: Counter Culture][round1b1] (`counter-culture`)
 * ✓ [B: Noisy Neighbors][round1b2] (`noisy-neighbors`)
 * ✗ [C: Hiking Deer][round1b3] (`hiking-deer`)
 
