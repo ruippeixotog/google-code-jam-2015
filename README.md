@@ -39,7 +39,7 @@ The following is the list of the problems solved. Each problem identifier is spe
 
 * ✓ [A: Counter Culture][round1b1] (`counter-culture`)
 * ✓ [B: Noisy Neighbors][round1b2] (`noisy-neighbors`)
-* ✗ [C: Hiking Deer][round1b3] (`hiking-deer`)
+* ✓ [C: Hiking Deer][round1b3] (`hiking-deer`)
 
 ### Round 2
 
