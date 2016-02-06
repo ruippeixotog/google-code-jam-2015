@@ -45,6 +45,7 @@ The following is the list of the problems solved. Each problem identifier is spe
 
 * ✓ [A: Brattleship][round1c1] (`brattleship`)
 * ✓ [B: Typewriter Monkey][round1c2] (`typewriter-monkey`)
+* ✓ [C: Less Money, More Problems][round1c3] (`less-money-more-problems`)
 
 ### Round 2
 
