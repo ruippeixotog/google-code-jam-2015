@@ -41,6 +41,11 @@ The following is the list of the problems solved. Each problem identifier is spe
 * ✓ [B: Noisy Neighbors][round1b2] (`noisy-neighbors`)
 * ✓ [C: Hiking Deer][round1b3] (`hiking-deer`)
 
+### Round 1C
+
+* ✓ [A: Brattleship][round1c1] (`brattleship`)
+* ✓ [B: Typewriter Monkey][round1c2] (`typewriter-monkey`)
+
 ### Round 2
 
 * ✗ [A: Pegman][round21] (`pegman`)
@@ -57,5 +62,7 @@ The following is the list of the problems solved. Each problem identifier is spe
 [round1b1]: https://code.google.com/codejam/contest/8224486/dashboard#s=p0
 [round1b2]: https://code.google.com/codejam/contest/8224486/dashboard#s=p1
 [round1b3]: https://code.google.com/codejam/contest/8224486/dashboard#s=p2
+[round1c1]: https://code.google.com/codejam/contest/4244486/dashboard#s=p0
+[round1c2]: https://code.google.com/codejam/contest/4244486/dashboard#s=p1
 [round21]: https://code.google.com/codejam/contest/8234486/dashboard#s=p0
 [round22]: https://code.google.com/codejam/contest/8234486/dashboard#s=p1
