@@ -60,6 +60,7 @@ The following is the list of the problems solved. Each problem identifier is spe
 
 ### Distributed Online Round
 
+* ✓ [A: Almost Sorted][distribonline1] (`almost_sorted`)
 * ✗ [E: Highest Mountain][distribonline5] (`highest_mountain`)
 
 [1]: https://code.google.com/codejam
@@ -79,4 +80,5 @@ The following is the list of the problems solved. Each problem identifier is spe
 [round1c2]: https://code.google.com/codejam/contest/4244486/dashboard#s=p1
 [round21]: https://code.google.com/codejam/contest/8234486/dashboard#s=p0
 [round22]: https://code.google.com/codejam/contest/8234486/dashboard#s=p1
+[distribonline1]: https://code.google.com/codejam/contest/8254486/dashboard#s=p0
 [distribonline5]: https://code.google.com/codejam/contest/8254486/dashboard#s=p4
