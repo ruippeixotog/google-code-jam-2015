@@ -61,7 +61,7 @@ The following is the list of the problems solved. Each problem identifier is spe
 ### Distributed Online Round
 
 * ✓ [B: Almost Sorted][distribonline2] (`almost_sorted`)
-* ✗ [C: Mutexes][distribonline3] (`mutexes`)
+* ✓ [C: Mutexes][distribonline3] (`mutexes`)
 * ✗ [E: Highest Mountain][distribonline5] (`highest_mountain`)
 
 [1]: https://code.google.com/codejam
