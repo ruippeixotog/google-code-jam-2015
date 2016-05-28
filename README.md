@@ -55,7 +55,7 @@ The following is the list of the problems solved. Each problem identifier is spe
 
 ### Round 2
 
-* ✗ [A: Pegman][round21] (`pegman`)
+* ✓ [A: Pegman][round21] (`pegman`)
 * ✗ [B: Kiddie Pool][round22] (`kiddie-pool`)
 
 ### Distributed Online Round

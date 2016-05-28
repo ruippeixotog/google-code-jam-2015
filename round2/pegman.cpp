@@ -1,11 +1,7 @@
 #include <iostream>
-#include <utility>
-#include <vector>
 
-#define ll long long
-
-#define MAXR 4
-#define MAXC 4
+#define MAXR 100
+#define MAXC 100
 #define INF 1e6
 
 using namespace std;
@@ -21,31 +17,39 @@ bool isValid(int i, int j) {
   return i >= 0 && j >= 0 && i < r && j < c;
 }
 
-int follow(int i, int j, int d);
+void follow(int i, int j, int& iNext, int& jNext) {
+  iNext = i; jNext = j; int d = grid[i][j];
+  if(d < 0) return;
 
-int bf(int i, int j) {
-  if(grid[i][j] < 0 || visited[i][j]) return 0;
-  visited[i][j] = true;
-
-  cerr << "visited " << i << "," << j << endl;
-
-  int best = INF;
-  for(int d = 0; d < 4; d++) {
-    int res = follow(i, j, d);
-    best = min(best, res + (d == grid[i][j] ? 0 : 1));
-  }
-  return best;
+  do {
+    iNext += dr[d]; jNext += dc[d];
+  } while(isValid(iNext, jNext) && grid[iNext][jNext] < 0);
 }
 
-int follow(int i, int j, int d) {
-  i += dr[d]; j += dc[d];
-  if(!isValid(i, j)) return INF;
-  if(grid[i][j] < 0) return follow(i, j, d);
-  if(!visited[i][j]) {
-    cerr << "follow to " << i << "," << j << " (" << d << ")" << endl;
-    return bf(i, j);
+int process(int i0, int j0) {
+  if(grid[i0][j0] < 0 || visited[i0][j0]) return false;
+
+  int cnt = 0;
+
+  int i, j; bool found = false;
+  for(int d = 0; d < 4; d++) {
+    follow(i0, j0, i, j);
+    if(isValid(i, j)) { found = true; break; }
+
+    grid[i0][j0] = (grid[i0][j0] + 1) % 4;
+    cnt = 1;
   }
-  return 0;
+
+  if(!found) return INF;
+
+  i = i0, j = j0;
+  while(isValid(i, j) && !visited[i][j]) {
+    visited[i][j] = true;
+    follow(i, j, i, j);
+  }
+
+  if(!isValid(i, j)) cnt++;
+  return cnt;
 }
 
 int main() {
@@ -70,7 +74,7 @@ int main() {
     int sum = 0;
     for(int i = 0; i < r; i++) {
       for(int j = 0; j < c; j++) {
-        sum += bf(i, j);
+        sum += process(i, j);
       }
     }
 
