@@ -62,6 +62,7 @@ The following is the list of the problems solved. Each problem identifier is spe
 
 * ✓ [B: Almost Sorted][distribonline2] (`almost_sorted`)
 * ✓ [C: Mutexes][distribonline3] (`mutexes`)
+* ✓ [D: Johnny][distribonline4] (`johnny`)
 * ✗ [E: Highest Mountain][distribonline5] (`highest_mountain`)
 
 [1]: https://code.google.com/codejam
@@ -83,4 +84,5 @@ The following is the list of the problems solved. Each problem identifier is spe
 [round22]: https://code.google.com/codejam/contest/8234486/dashboard#s=p1
 [distribonline2]: https://code.google.com/codejam/contest/8254486/dashboard#s=p1
 [distribonline3]: https://code.google.com/codejam/contest/8254486/dashboard#s=p2
+[distribonline4]: https://code.google.com/codejam/contest/8254486/dashboard#s=p3
 [distribonline5]: https://code.google.com/codejam/contest/8254486/dashboard#s=p4
